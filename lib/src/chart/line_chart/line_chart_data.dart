@@ -251,7 +251,7 @@ class LineChartBarData with EquatableMixin {
         color = color ?? ((color == null && gradient == null) ? Colors.cyan : null),
         barWidth = barWidth ?? 2.0,
         isCurved = isCurved ?? false,
-        curveSmoothness = curveSmoothness ?? 0.35,
+        curveSmoothness = curveSmoothness ?? 0,
         preventCurveOverShooting = preventCurveOverShooting ?? false,
         preventCurveOvershootingThreshold = preventCurveOvershootingThreshold ?? 10.0,
         isStrokeCapRound = isStrokeCapRound ?? false,
