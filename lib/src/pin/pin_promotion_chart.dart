@@ -18,6 +18,7 @@ class PinPromotionChartContainer extends StatefulWidget {
     this.tipsLabelColor = const Color(0xFF409EFF),
     this.tipsTextStyle = const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14),
     this.barTitleStyle = const TextStyle(fontWeight: FontWeight.w200, fontSize: 14, color: Color(0xff999999)),
+    this.curveSmoothness = 0,
   }) {
     scale = maxVal > 10.0 ? (maxVal / 10) : 1.0;
   }
@@ -56,6 +57,9 @@ class PinPromotionChartContainer extends StatefulWidget {
 
   // 刻度字体
   TextStyle barTitleStyle;
+
+  // 平滑度
+  double curveSmoothness;
 
   @override
   State<PinPromotionChartContainer> createState() => _PinPromotionChartControlerState();
@@ -133,6 +137,7 @@ class _PinPromotionChartControlerState extends State<PinPromotionChartContainer>
         lineBarsData: [
           LineChartBarData(
             spots: dataConversion,
+            curveSmoothness: widget.curveSmoothness,
             isCurved: true,
             gradient: LinearGradient(
               colors: widget.gradientColors,
