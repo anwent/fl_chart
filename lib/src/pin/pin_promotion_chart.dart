@@ -176,7 +176,7 @@ class PinPromotionChartControlerState extends State<PinPromotionChartContainer> 
 
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
     final index = value.toInt();
-    final items = widget.datasource.map((e) => e.time).toList();
+    final items = widget.datasource.map((e) => e.time.substring(5)).toList();
     if (index < items.length) {
       Widget text = Text(items[index], style: widget.barTitleStyle);
       return SideTitleWidget(
@@ -197,7 +197,7 @@ class PinPromotionChartControlerState extends State<PinPromotionChartContainer> 
   List<LineTooltipItem> tooltipItem(List<LineBarSpot> touchedSpots) {
     return touchedSpots.map((LineBarSpot touchedSpot) {
       final price = widget.datasource[touchedSpot.spotIndex].price;
-      final time = widget.datasource[touchedSpot.spotIndex].time;
+      final time = widget.datasource[touchedSpot.spotIndex].time.substring(5);
       return LineTooltipItem('$time   $price元', widget.tipsTextStyle);
     }).toList();
   }
