@@ -68,7 +68,7 @@ class PinPromotionChartContainer extends StatefulWidget {
   FlTouchEventHandler? touchEvent;
 
   @override
-  State<PinPromotionChartContainer> createState() => _PinPromotionChartControlerState();
+  State<PinPromotionChartContainer> createState() => PinPromotionChartControlerState();
 
   /// 数据源缩放比例
   double scale = 1.0;
@@ -77,7 +77,7 @@ class PinPromotionChartContainer extends StatefulWidget {
   double get maxVal => datasource.map((e) => e.price).toList().reduce((value, element) => value > element ? value : element);
 }
 
-class _PinPromotionChartControlerState extends State<PinPromotionChartContainer> {
+class PinPromotionChartControlerState extends State<PinPromotionChartContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
