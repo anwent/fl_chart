@@ -1,6 +1,8 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
+typedef FlTouchEventHandler = void Function(FlTouchEvent, int?);
+
 class PinPromotionChartContainer extends StatefulWidget {
   PinPromotionChartContainer(
     this.datasource, {
@@ -19,6 +21,7 @@ class PinPromotionChartContainer extends StatefulWidget {
     this.tipsTextStyle = const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14),
     this.barTitleStyle = const TextStyle(fontWeight: FontWeight.w200, fontSize: 14, color: Color(0xff999999)),
     this.curveSmoothness = 0,
+    this.touchEvent,
   }) {
     scale = maxVal > 10.0 ? (maxVal / 10) : 1.0;
   }
@@ -60,6 +63,9 @@ class PinPromotionChartContainer extends StatefulWidget {
 
   // 平滑度
   double curveSmoothness;
+
+  // callback
+  FlTouchEventHandler? touchEvent;
 
   @override
   State<PinPromotionChartContainer> createState() => _PinPromotionChartControlerState();
@@ -159,6 +165,13 @@ class _PinPromotionChartControlerState extends State<PinPromotionChartContainer>
           getTooltipItems: tooltipItem,
           tooltipBgColor: widget.tipsLabelColor,
         ),
+        touchCallback: (event, response) {
+          if ((response?.lineBarSpots?.length ?? 0) > 0) {
+            widget.touchEvent?.call(event, response?.lineBarSpots?.first.spotIndex);
+          } else {
+            widget.touchEvent?.call(event, null);
+          }
+        },
       );
 
   Widget bottomTitleWidgets(double value, TitleMeta meta) {

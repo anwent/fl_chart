@@ -20,7 +20,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 1.70,
+      aspectRatio: 1.00,
       child: PinPromotionChartContainer(
         [
           PinPromotionPoint(index: 0, time: '02-11', price: 3333),
@@ -29,6 +29,9 @@ class _LineChartSample2State extends State<LineChartSample2> {
           PinPromotionPoint(index: 3, time: '03-04', price: 11233),
           PinPromotionPoint(index: 4, time: '03-11', price: 72302),
         ],
+        touchEvent: (event, index) {
+          print('点击event：  $event,    x坐标:   $index');
+        },
       ),
     );
   }
