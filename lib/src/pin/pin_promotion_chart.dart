@@ -159,7 +159,7 @@ class PinPromotionChartControlerState extends State<PinPromotionChartContainer> 
       );
 
   LineTouchData get touchData => LineTouchData(
-        handleBuiltInTouches: false,
+        handleBuiltInTouches: true,
         getTouchLineEnd: defaultGetTouchLineStart,
         touchTooltipData: LineTouchTooltipData(
           getTooltipItems: tooltipItem,
@@ -199,11 +199,12 @@ class PinPromotionChartControlerState extends State<PinPromotionChartContainer> 
   }
 
   List<LineTooltipItem> tooltipItem(List<LineBarSpot> touchedSpots) {
-    return touchedSpots.map((LineBarSpot touchedSpot) {
-      final price = widget.datasource[touchedSpot.spotIndex].price;
-      final time = widget.datasource[touchedSpot.spotIndex].xVal;
-      final sub = time.length == 10 ? time.substring(5) : time;
-      return LineTooltipItem('$sub   $price元', widget.tipsTextStyle);
-    }).toList();
+    return touchedSpots.map((e) => LineTooltipItem('', widget.tipsTextStyle)).toList();
+    // return touchedSpots.map((LineBarSpot touchedSpot) {
+    //   // final price = widget.datasource[touchedSpot.spotIndex].price;
+    //   // final time = widget.datasource[touchedSpot.spotIndex].xVal;
+    //   // final sub = time.length == 10 ? time.substring(5) : time;
+    //   return LineTooltipItem('', widget.tipsTextStyle);
+    // }).toList();
   }
 }
