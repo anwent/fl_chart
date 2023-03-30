@@ -23,11 +23,11 @@ class _LineChartSample2State extends State<LineChartSample2> {
       aspectRatio: 1.00,
       child: PinPromotionChartContainer(
         [
-          PinPromotionPoint(index: 0, time: '02-11', price: 3333),
-          PinPromotionPoint(index: 1, time: '02-18', price: 50030),
-          PinPromotionPoint(index: 2, time: '02-25', price: 1400),
-          PinPromotionPoint(index: 3, time: '03-04', price: 11233),
-          PinPromotionPoint(index: 4, time: '03-11', price: 72302),
+          PinPromotionPoint(index: 0, xVal: '02-11', price: 3333, showBottomX: true),
+          PinPromotionPoint(index: 1, xVal: '02-18', price: 50030, showBottomX: false),
+          PinPromotionPoint(index: 2, xVal: '02-25', price: 1400, showBottomX: true),
+          PinPromotionPoint(index: 3, xVal: '03-04', price: 11233, showBottomX: false),
+          PinPromotionPoint(index: 4, xVal: '03-11', price: 72302, showBottomX: false),
         ],
         touchEvent: (event, index) {
           print('点击event：  $event,    x坐标:   $index');

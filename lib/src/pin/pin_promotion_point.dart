@@ -10,13 +10,15 @@ import 'package:flutter/material.dart';
 /// Y -> price
 ///
 class PinPromotionPoint {
-  PinPromotionPoint({required this.index, required this.time, required this.price});
+  PinPromotionPoint({required this.index, required this.xVal, required this.price, required this.showBottomX});
 
   int index;
 
-  // X 时间
-  String time;
+  // X
+  String xVal;
 
   // Y 价格
   double price;
+
+  bool showBottomX;
 }
