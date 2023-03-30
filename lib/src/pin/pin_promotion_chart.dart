@@ -151,7 +151,7 @@ class PinPromotionChartControlerState extends State<PinPromotionChartContainer> 
             barWidth: widget.lineWidth,
             isStrokeCapRound: true,
             dotData: FlDotData(
-              show: true,
+              show: false,
             ),
           ),
         ],
@@ -159,7 +159,7 @@ class PinPromotionChartControlerState extends State<PinPromotionChartContainer> 
       );
 
   LineTouchData get touchData => LineTouchData(
-        handleBuiltInTouches: true,
+        handleBuiltInTouches: false,
         getTouchLineEnd: defaultGetTouchLineStart,
         touchTooltipData: LineTouchTooltipData(
           getTooltipItems: tooltipItem,

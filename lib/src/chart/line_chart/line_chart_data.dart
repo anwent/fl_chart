@@ -1224,9 +1224,9 @@ List<TouchedSpotIndicatorData> defaultTouchedIndicators(
     const lineStrokeWidth = 4.0;
     final flLine = FlLine(color: lineColor, strokeWidth: lineStrokeWidth);
 
-    var dotSize = 10.0;
+    var dotSize = 5.0;
     if (barData.dotData.show) {
-      dotSize = 4.0 * 1.2;
+      dotSize = 5.0 * 1.0;
     }
 
     final dotData = FlDotData(
